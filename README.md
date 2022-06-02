@@ -10,7 +10,7 @@
 	<b><i>As beautiful as a shell.. </i></b><br>
 </p>
 
-
+---------------------------------------------------------------------------
 <p align="center">
 	<img src="https://github.com/achrafelkhnissi/1337/blob/master/Piscine-2021/imgs/GoTTY.png" height=75>
 	<h3 align="center">
@@ -20,8 +20,6 @@
 	</h3>
 </p>
 													    
-
-
 -----------------------------------------------------------------------------
 
 ***`In this project, you’ll create your own little bash.`*** \
