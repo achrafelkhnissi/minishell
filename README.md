@@ -255,12 +255,12 @@ We chose to implement an **AST***(abstract syntax tree)* to store the result of 
     ```
     COMMAND#1 | COMMAND#2 | COMMAND#3:
     
-    													__ PIPELINE__
-                         ___/              \____
-                        /                       \
-    			       __ PIPELINE _               COMMAND #3
-    			      /             \
-    		 COMMAND #1         COMMAND #2
+                             __ PIPELINE__
+                        ___/               \____
+                      /                          \
+               __ PIPELINE __                  COMMAND #3
+	     /                \
+	COMMAND #1         COMMAND #2
     ```
     
 - **Pipe_struct**:
