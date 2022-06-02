@@ -1,4 +1,11 @@
+</p>
+<p align="center">  
+<img src ="https://github.com/achrafelkhnissi/1337/blob/master/Piscine-2021/imgs/IBM_TYPE_704.png">
+</p>
+
 # Minishell
+
+
 
 ## Notes
 - In order for `readline` functions to work you need to install it using brew!
