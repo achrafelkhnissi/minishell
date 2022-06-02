@@ -3,29 +3,30 @@
 <img src ="https://github.com/achrafelkhnissi/1337/blob/master/Piscine-2021/imgs/IBM_TYPE_704.png">
 </p>
 
-# Minishell
+<h1 align="center">
+	minishell
+</h1>
+<p align="center">
+	<b><i>As beautiful as a shell.. </i></b><br>
+</p>
 
-***As beautiful as a shell…***
-
-***`In this project, you’ll create your own little bash.`***
-
+***`In this project, you’ll create your own little bash.`*** \
 ***`This is a step-by-step guide to writing your own simple shell, we’ll provide you with a lot of information based on our own experience.`***
 
-- W**hat we’ll cover:**
-    readline.
-    pipes & redirections.
-    processes.
-    signals.
-    more…
-    
+- **What we’ll cover:**
+    - readline.
+    - pipes & redirections.
+    - processes.
+    - signals.
+    - more…
 
-# Display a prompt:
+## Display a prompt:
 
 ```c
 char *readline (char *prompt);
 ```
 
-The function `readline ()`prints a prompt and then reads and returns a single line of text from the user. The line `readline`returns is allocated with `malloc ()`; you should `free ()`the line when you are done with it.
+The function `readline()` prints a prompt and then reads and returns a single line of text from the user. The line `readline`returns is allocated with `malloc();` you should `free()` the line when you are done with it.
 
 So this is how you’ll get the user input.
 
@@ -41,7 +42,7 @@ In order to read a line of text from the user. The line returned has the final n
 
 If `readline` encounters an `EOF` (Ctrl + D) while reading the line, and the line is empty at that point, then `(char *)NULL` is returned. Otherwise, the line is ended just as if a newline `\n` had been typed.
 
-# Have a working history:
+## Have a working history:
 
 If you want the user to be able to get at the line later, you must call `add_history()` to save the line away in a history list of such lines. By adding this function you’ll be able to navigate through history with up and down and retry some commands.
 
@@ -49,10 +50,8 @@ If you want the user to be able to get at the line later, you must call `add_hi
 add_history(*line);
 ```
 
-At this point, you displayed a prompt with a working history, here are more things you need to check:
-
-if the line returned contains only spaces and tabs → all you need to do is to display a new prompt.
-
+At this point, you displayed a prompt with a working history, here are more things you need to check: \
+if the line returned contains only spaces and tabs → all you need to do is to display a new prompt. \
 if there is something in the line then you’ll add it to your history.
 
 ```c
@@ -71,31 +70,25 @@ while (1)
 	}
 ```
 
-# Clean your history:
+## Clean your history:
 
 ```c
 rl_clear_history (void);
 ```
 
-Clear the history list by deleting all of the entries.
-
-After getting the command line you need to execute it properly as bash does.
-
-we’ll give you a brief summary of how you’ll do that. There are 3 steps
-
-Lexer / tokenizer
-
-Parser.
-
-executor. 
-
+Clear the history list by deleting all of the entries. \
+After getting the command line you need to execute it properly as bash does. \
+We’ll give you a brief summary of how you’ll do that. There are 3 steps: 
+- Lexer / tokenizer 
+- Parser 
+- executor
+------------------------------------------------
 # **Lexer:**
 
 **lexing** or **tokenization** is the process of converting a sequence of characters into a sequence of *lexical tokens* for us we choose to traverse the line returned character by character and tokenize it, tokenizing is basically naming things (ex: this a WORD, this is a PIPE….)  **at this stage we don’t care if it’s a valid command or which command is it**, all we do is discovering what it’s in there.
 
 Technically speaking, let’s see how can we do that:
-
-We chose to create a doubly-linked list to store our lexer results.
+- We chose to create a doubly-linked list to store our lexer results.
 
 ```c
 typedef struct s_list
@@ -120,10 +113,8 @@ typedef struct s_elem
 }	t_elem;
 ```
 
-**content**: a pointer to the string stored in a node.
-
-**len:** the content length.
-
+**content**: a pointer to the string stored in a node. \
+**len:** the content length. \
 **type:** the content token.
 
 - enum e_token
@@ -165,7 +156,7 @@ typedef struct s_elem
 
 ## Explanation:
 
-here is an example of how a line is tokenized:
+Here is an example of how a line is tokenized:
 
 </p>
 <p align="center">  
@@ -187,10 +178,9 @@ echo "hello  $USER " > file | grep h | cat << eof | cat >> file | echo 'done'
 
 we keep doing the same thing till the end.
 
-<aside>
+```
 💡 It’s better to write all the functions you’ll need related to linked list before you start implementing your lexer.
-
-</aside>
+```
 
 These are the functions we used.
 
@@ -205,10 +195,11 @@ void			  free_list(t_list *list);
 
 Now we have our linked list with all the information needed. 
 
-<aside>
+```
 ⚠️ Before launching the parser we check if there are any syntax errors, if yes we print an error message, then we display another prompt.
+```
 
-</aside>
+-------------------------------------------------------------
 
 # PARSER:
 
@@ -332,7 +323,7 @@ After we got the lexer list and the syntax is valid we start by parsing the firs
         
         ```
         💡 you can search in the env array directly.
-	```
+	    ```
         
 - If we find a (single/double) quotes we store all the content inside in args[i], without forgetting to expand env variables if we have double-quotes.
 - If we find a redirection **`(>,<,>>)`** we store the type, and the first node of the **(WORD/ENV)** type is stored in the **arg** variable as the **file name.**
