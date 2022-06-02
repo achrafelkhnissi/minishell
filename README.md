@@ -259,8 +259,8 @@ We chose to implement an **AST***(abstract syntax tree)* to store the result of 
                         ___/               \____
                       /                          \
                __ PIPELINE __                  COMMAND #3
-	     /                \
-	COMMAND #1         COMMAND #2
+             /                \
+         COMMAND #1         COMMAND #2
     ```
     
 - **Pipe_struct**:
