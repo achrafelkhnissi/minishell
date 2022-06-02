@@ -170,9 +170,13 @@ typedef struct s_elem
 
 ## Explanation:
 
-here is an example of how a line is tokenized: 
+here is an example of how a line is tokenized:
 
-![Screen Shot 2022-05-31 at 4.17.51 PM.png](MiniShell%201e24d10ec9914a189dc23d724e734595/Screen_Shot_2022-05-31_at_4.17.51_PM.png)
+</p>
+<p align="center">  
+<img src ="https://github.com/achrafelkhnissi/1337/blob/master/Piscine-2021/imgs/minishell_lexer.png">
+</p>
+
 
 ```c
 echo "hello  $USER " > file | grep h | cat << eof | cat >> file | echo 'done'
