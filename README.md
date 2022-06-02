@@ -12,15 +12,10 @@
 ***`This is a step-by-step guide to writing your own simple shell, we’ll provide you with a lot of information based on our own experience.`***
 
 - W**hat we’ll cover:**
-    
     readline.
-    
     pipes & redirections.
-    
     processes.
-    
     signals.
-    
     more…
     
 
@@ -335,33 +330,30 @@ After we got the lexer list and the syntax is valid we start by parsing the firs
         
         functions to convert a list to a 2D array and vice versa.
         
-        <aside>
+        ```
         💡 you can search in the env array directly.
-        
-        </aside>
+	```
         
 - If we find a (single/double) quotes we store all the content inside in args[i], without forgetting to expand env variables if we have double-quotes.
 - If we find a redirection **`(>,<,>>)`** we store the type, and the first node of the **(WORD/ENV)** type is stored in the **arg** variable as the **file name.**
     
-    <aside>
+    ```
     ⚠️ If the arg is an env variable we expand it, if it’s not found we print an **`ambiguous redirect`** error**.**
-    
-    </aside>
+    ```
     
 - If we find **HERE_DOC**:
     - We open a temporary file and we start reading from **`STDIN_FILENO`** into it, and we compare every line entered with the `**EOF**` character specified by the user, then we stop reading when matched.
     
-    <aside>
+	```
     💡 We should check if the line contains an `**ENV**` so we can expand it.
-    
-    </aside>
+	```
     
     - We assign the temporary file name to the arg variable so we can treat it as a redirection.
     
-    <aside>
+    ```
     ⚠️ DON’T forget to unlink the file using the `[unlink()](https://man7.org/linux/man-pages/man2/unlink.2.html)` function, so it can be deleted automatically after being used.
     
-    </aside>
+    ```
     
 - If we find PIPE_LINE:
     - We initialize a **pipe tree_node**.
