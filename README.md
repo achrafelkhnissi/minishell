@@ -10,6 +10,20 @@
 	<b><i>As beautiful as a shell.. </i></b><br>
 </p>
 
+
+<p align="center">
+	<img src="https://github.com/achrafelkhnissi/1337/blob/master/Piscine-2021/imgs/GoTTY.png" height=75>
+	<h3 align="center">
+	<a href="https://www.linkedin.com/in/achrafelkhnissi/">ael-khni</a>
+	<span> · </span>
+	<a href="https://github.com/JamaaFathiya">fathjami</a>
+	</h3>
+</p>
+													    
+
+
+-----------------------------------------------------------------------------
+
 ***`In this project, you’ll create your own little bash.`*** \
 ***`This is a step-by-step guide to writing your own simple shell, we’ll provide you with a lot of information based on our own experience.`***
 
@@ -370,9 +384,11 @@ COMMAND: echo hello $USER1 $USER2 > file | cat -e file | grep h
 ```
 
 
+---------------------------------------------------
 
+# Execution
 
-
+Typing... 
 
 
 
@@ -409,8 +425,6 @@ COMMAND: echo hello $USER1 $USER2 > file | cat -e file | grep h
   FILE *outf;` \
   In your header file! you need to put `stdio.h` file before `readline/readline.h` and `readline/history.h` file \
   because `FILE` is defined in `stdio.h`
-- it's a good practice to terminate a 2d array with NULL.
-- Export without arguments: prints sorted env var.
 
 
 ## Resources
