@@ -351,7 +351,7 @@ After we got the lexer list and the syntax is valid we start by parsing the firs
     - We assign the temporary file name to the arg variable so we can treat it as a redirection.
     
     ```
-    ⚠️ DON’T forget to unlink the file using the `[unlink()](https://man7.org/linux/man-pages/man2/unlink.2.html)` function, so it can be deleted automatically after being used.
+    ⚠️ DON’T forget to unlink the file using the unlink()function, so it can be deleted automatically after being used.
     
     ```
     
@@ -364,18 +364,18 @@ After we got the lexer list and the syntax is valid we start by parsing the firs
 ```
 COMMAND: **echo hello $USER1 $USER2 > file | cat -e file | grep h**
 
-												  __ PIPELINE __
+			  __ PIPELINE __
                      ___/                \____
                    /                           \
             __ PIPELINE __                   COMMAND       
-			    /                \                    |
-			COMMAND           COMMAND               ARGS
-		/        \             |                    | 
- ARGS       REDIR        ARGS                 0: grep
-	 |          |            |                  1: h
- 0: echo      >         0: cat
- 1: ael-khni 	|					1: -e
- 2: fathjami file       2: file													
+	  /                \                    |
+       COMMAND           COMMAND               ARGS
+      /        \             |                    | 
+   ARGS       REDIR        ARGS                 0: grep
+     |          |            |                  1: h
+   0: echo      >         0: cat
+   1: ael-khni 	|	  1: -e
+   2: fathjami file       2: file													
 ```
 
 
