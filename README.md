@@ -362,20 +362,20 @@ After we got the lexer list and the syntax is valid we start by parsing the firs
     - We repeat the same process ***recursively***.
 
 ```
-COMMAND: **echo hello $USER1 $USER2 > file | cat -e file | grep h**
+COMMAND: echo hello $USER1 $USER2 > file | cat -e file | grep h
 
 			  __ PIPELINE __
                      ___/                \____
                    /                           \
-            __ PIPELINE __                   COMMAND       
+            __ PIPELINE __                   COMMAND
 	  /                \                    |
        COMMAND           COMMAND               ARGS
-      /        \             |                    | 
-   ARGS       REDIR        ARGS                 0: grep
-     |          |            |                  1: h
+      /        \             |                  | 
+   ARGS       REDIR        ARGS               0: grep
+     |          |            |                1: h
    0: echo      >         0: cat
    1: ael-khni 	|	  1: -e
-   2: fathjami file       2: file													
+   2: fathjami file       2: file		
 ```
 
 
